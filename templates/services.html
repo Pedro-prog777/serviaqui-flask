@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="page-hero compact">
+  <div class="container page-hero-grid">
+    <article>
+      <p class="eyebrow">Catálogo</p>
+      <h1>Serviços organizados para comparação rápida e decisão com mais segurança.</h1>
+      <p>Use a busca, filtre por categoria e acompanhe também a vitrine de anúncios aprovados.</p>
+    </article>
+    <aside class="surface-card helper-box">
+      <h2>Melhor experiência em qualquer dispositivo</h2>
+      <p>Cards adaptáveis, espaçamento mais limpo e leitura mais confortável no mobile.</p>
+    </aside>
+  </div>
+</section>
+
+<section class="section-block">
+  <div class="container">
+    <div class="toolbar-shell">
+      <label class="field-grow" for="serviceSearch">Buscar serviço</label>
+      <input id="serviceSearch" class="form-control toolbar-input" type="search" placeholder="Ex.: eletricista, reforço, limpeza">
+      <div class="chip-group" role="tablist" aria-label="Filtros de categoria">
+        <button type="button" class="filter-chip active" data-filter="todos">Todos</button>
+        <button type="button" class="filter-chip" data-filter="reformas">Reformas</button>
+        <button type="button" class="filter-chip" data-filter="beleza">Beleza</button>
+        <button type="button" class="filter-chip" data-filter="educação">Educação</button>
+        <button type="button" class="filter-chip" data-filter="casa">Casa</button>
+      </div>
+      <p class="toolbar-result" id="resultsCount">0 serviço(s) encontrado(s)</p>
+    </div>
+
+    <div class="feature-grid">
+      <article class="surface-card service-item" data-category="reformas" data-search="eletricista residencial instalação manutenção elétrica atendimento emergencial">
+        <img src="{{ url_for('static', filename='assets/img/service-repair.jpg') }}" alt="Profissional executando reparo residencial" loading="lazy" width="640" height="400">
+        <div class="card-body-flow">
+          <h2>Eletricista residencial</h2>
+          <p>Instalação, manutenção e atendimento com escopo claro e retorno rápido.</p>
+          <p class="card-meta">Categoria: Reformas</p>
+        </div>
+      </article>
+
+      <article class="surface-card service-item" data-category="beleza" data-search="maquiagem em domicílio evento beleza produção social">
+        <img src="{{ url_for('static', filename='assets/img/service-beauty.jpg') }}" alt="Atendimento de maquiagem profissional" loading="lazy" width="640" height="400">
+        <div class="card-body-flow">
+          <h2>Maquiagem em domicílio</h2>
+          <p>Atendimento personalizado com briefing prévio e apresentação profissional.</p>
+          <p class="card-meta">Categoria: Beleza</p>
+        </div>
+      </article>
+
+      <article class="surface-card service-item" data-category="educação" data-search="reforço escolar aula professor estudante matemática português">
+        <img src="{{ url_for('static', filename='assets/img/service-tutoring.jpg') }}" alt="Estudante em sessão de reforço escolar" loading="lazy" width="640" height="400">
+        <div class="card-body-flow">
+          <h2>Reforço escolar</h2>
+          <p>Acompanhamento didático com rotina estruturada e comunicação mais clara.</p>
+          <p class="card-meta">Categoria: Educação</p>
+        </div>
+      </article>
+
+      <article class="surface-card service-item" data-category="casa" data-search="reforma residencial organização pintura acabamento limpeza casa">
+        <img src="{{ url_for('static', filename='assets/img/service-renovation.jpg') }}" alt="Ambiente em processo de reforma" loading="lazy" width="640" height="400">
+        <div class="card-body-flow">
+          <h2>Reforma e manutenção</h2>
+          <p>Equipe para melhorias, pequenos reparos e execução com mais previsibilidade.</p>
+          <p class="card-meta">Categoria: Casa</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section-block section-soft">
+  <div class="container">
+    <header class="section-heading">
+      <p class="eyebrow">Marketplace</p>
+      <h2>Anúncios aprovados publicados na base.</h2>
+    </header>
+    <section id="marketplaceGrid" class="marketplace-grid" aria-live="polite"></section>
+  </div>
+</section>
+{% endblock %}

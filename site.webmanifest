@@ -1,0 +1,9 @@
+{
+  "name": "ServiAqui",
+  "short_name": "ServiAqui",
+  "description": "Serviços locais com confiança, agilidade e presença digital profissional.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#08111c",
+  "theme_color": "#0b1623"
+}

@@ -1,0 +1,116 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="hero-section">
+  <div class="container">
+    <div class="hero-grid">
+      <article class="hero-copy">
+        <p class="eyebrow">Plataforma institucional para serviços locais</p>
+        <h1>Encontre, publique e gerencie serviços com uma experiência confiável em qualquer tela.</h1>
+        <p class="hero-lead">O novo ServiAqui foi reposicionado para parecer produto real: visual premium, navegação objetiva, backend funcional e IA aplicada onde gera valor.</p>
+        <nav class="hero-actions" aria-label="Ações principais">
+          <a class="btn btn-brand btn-lg" href="{{ url_for('page_services') }}">Explorar serviços</a>
+          <a class="btn btn-outline-brand btn-lg" href="{{ url_for('page_advertise') }}">Publicar meu serviço</a>
+        </nav>
+        <ul class="hero-badges" aria-label="Diferenciais da plataforma">
+          <li>Responsivo de verdade</li>
+          <li>Copy assistida por IA</li>
+          <li>Painel com dados reais</li>
+        </ul>
+      </article>
+
+      <aside class="hero-panel surface-card">
+        <header class="card-head">
+          <p class="eyebrow">Slogan renovado</p>
+          <h2>Serviços locais com confiança, agilidade e presença digital profissional.</h2>
+        </header>
+        <dl class="metrics-grid">
+          <div>
+            <dt>Cadastro</dt>
+            <dd data-count-to="24">0</dd>
+          </div>
+          <div>
+            <dt>Fluxos ativos</dt>
+            <dd data-count-to="8">0</dd>
+          </div>
+          <div>
+            <dt>Operação</dt>
+            <dd>Full stack</dd>
+          </div>
+          <div>
+            <dt>IA</dt>
+            <dd>Backend seguro</dd>
+          </div>
+        </dl>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section class="section-block">
+  <div class="container">
+    <header class="section-heading">
+      <p class="eyebrow">O que foi elevado nesta versão</p>
+      <h2>Uma base pronta para apresentação, evolução de produto e uso real.</h2>
+    </header>
+
+    <div class="feature-grid">
+      <article class="surface-card feature-card">
+        <i class="bi bi-phone icon-badge" aria-hidden="true"></i>
+        <h3>Mobile first premium</h3>
+        <p>Layout pensado para celular, com expansão consistente para tablet e desktop.</p>
+      </article>
+      <article class="surface-card feature-card">
+        <i class="bi bi-layout-text-window-reverse icon-badge" aria-hidden="true"></i>
+        <h3>Semântica mais limpa</h3>
+        <p>Menos excesso estrutural e mais clareza em header, main, section, article, form e footer.</p>
+      </article>
+      <article class="surface-card feature-card">
+        <i class="bi bi-stars icon-badge" aria-hidden="true"></i>
+        <h3>Visual corporativo</h3>
+        <p>Tipografia, sombras, contraste, espaçamento e componentes com acabamento mais maduro.</p>
+      </article>
+      <article class="surface-card feature-card">
+        <i class="bi bi-robot icon-badge" aria-hidden="true"></i>
+        <h3>IA aplicada com critério</h3>
+        <p>Assistente para navegação e melhoria de anúncios sem expor chave no front-end.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section-block section-soft">
+  <div class="container">
+    <div class="split-highlight">
+      <article>
+        <p class="eyebrow">Fluxo principal</p>
+        <h2>Da descoberta ao contato sem ruído.</h2>
+        <ol class="content-list">
+          <li>O cliente entende a proposta logo na primeira dobra.</li>
+          <li>Entra no catálogo, filtra e compara opções.</li>
+          <li>Pede ajuda à IA se necessário.</li>
+          <li>Fala com a equipe ou com o prestador.</li>
+        </ol>
+      </article>
+      <aside class="surface-card helper-box">
+        <h3>Resultados esperados</h3>
+        <ul class="check-list">
+          <li>Mais confiança na primeira impressão</li>
+          <li>Melhor taxa de cadastro e envio de anúncio</li>
+          <li>Experiência mais estável em celular e tablet</li>
+        </ul>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section class="section-block">
+  <div class="container">
+    <header class="section-heading">
+      <p class="eyebrow">Anúncios aprovados</p>
+      <h2>Vitrine dinâmica da plataforma.</h2>
+    </header>
+    <section id="marketplaceGrid" class="marketplace-grid" aria-live="polite"></section>
+  </div>
+</section>
+{% endblock %}

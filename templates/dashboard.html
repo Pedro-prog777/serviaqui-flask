@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="page-hero compact">
+  <div class="container page-hero-grid">
+    <article>
+      <p class="eyebrow">Painel</p>
+      <h1>Acompanhe anúncios, contatos e interações em um só lugar.</h1>
+      <p>Visão operacional resumida para o usuário autenticado.</p>
+    </article>
+  </div>
+</section>
+
+<section class="section-block">
+  <div class="container">
+    <section class="stats-grid" id="dashboardStats"></section>
+    <section class="dashboard-grid mt-4">
+      <article class="surface-card">
+        <header class="card-head"><h2>Últimos anúncios</h2></header>
+        <section id="dashboardAnnouncements"></section>
+      </article>
+      <article class="surface-card">
+        <header class="card-head"><h2>Últimos contatos</h2></header>
+        <section id="dashboardContacts"></section>
+      </article>
+      <article class="surface-card">
+        <header class="card-head"><h2>Conversas recentes</h2></header>
+        <section id="dashboardChats"></section>
+      </article>
+    </section>
+  </div>
+</section>
+{% endblock %}

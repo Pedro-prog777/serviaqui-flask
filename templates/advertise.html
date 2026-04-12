@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="page-hero compact">
+  <div class="container page-hero-grid">
+    <article>
+      <p class="eyebrow">Publicação</p>
+      <h1>Publique seu serviço com mais clareza, valor percebido e padrão profissional.</h1>
+      <p>Preencha os dados, refine a copy com IA e envie para moderação da plataforma.</p>
+    </article>
+    <aside class="surface-card helper-box">
+      <h2>Fluxo inteligente</h2>
+      <p>Preview em tempo real, validação no front, envio ao backend e armazenamento seguro.</p>
+    </aside>
+  </div>
+</section>
+
+<section class="section-block">
+  <div class="container">
+    <div class="form-layout">
+      <form id="announcementForm" class="surface-card form-shell" novalidate>
+        <header class="card-head">
+          <p class="eyebrow">Novo anúncio</p>
+          <h2>Dados do serviço</h2>
+        </header>
+
+        <div class="row g-3">
+          <div class="col-md-6">
+            <label class="form-label" for="serviceName">Nome do serviço</label>
+            <input id="serviceName" name="name" class="form-control" required>
+          </div>
+          <div class="col-md-6">
+            <label class="form-label" for="serviceCategory">Categoria</label>
+            <input id="serviceCategory" name="category" class="form-control" required>
+          </div>
+          <div class="col-md-6">
+            <label class="form-label" for="serviceNeighborhood">Região de atendimento</label>
+            <input id="serviceNeighborhood" name="neighborhood" class="form-control">
+          </div>
+          <div class="col-md-6">
+            <label class="form-label" for="servicePrice">Faixa de preço</label>
+            <input id="servicePrice" name="price" class="form-control" placeholder="A combinar">
+          </div>
+          <div class="col-12">
+            <label class="form-label" for="serviceContact">Contato principal</label>
+            <input id="serviceContact" name="contact" class="form-control" required>
+          </div>
+          <div class="col-12">
+            <label class="form-label" for="serviceDescription">Descrição</label>
+            <textarea id="serviceDescription" name="description" class="form-control" rows="5" required></textarea>
+          </div>
+          <div class="col-12">
+            <label class="form-label" for="serviceAccessibility">Diferenciais e acessibilidade</label>
+            <textarea id="serviceAccessibility" name="accessibility" class="form-control" rows="3"></textarea>
+          </div>
+          <div class="col-12">
+            <label class="form-label" for="serviceImage">Imagem do serviço</label>
+            <input id="serviceImage" name="image" class="form-control" type="file" accept="image/png,image/jpeg,image/webp">
+          </div>
+        </div>
+
+        <div class="form-actions mt-4">
+          <button id="improveAnnouncementBtn" class="btn btn-outline-brand" type="button">Melhorar texto com IA</button>
+          <button class="btn btn-brand" type="submit">Enviar para moderação</button>
+        </div>
+
+        <p class="form-feedback" id="announcementFeedback" aria-live="polite"></p>
+      </form>
+
+      <aside class="surface-card preview-card">
+        <header class="card-head">
+          <p class="eyebrow">Preview</p>
+          <h2>Como o anúncio pode aparecer</h2>
+        </header>
+
+        <figure class="preview-media">
+          <img id="previewImage" src="" alt="Pré-visualização da imagem do anúncio" hidden>
+          <figcaption id="previewImageEmpty">Sua imagem aparecerá aqui após a seleção.</figcaption>
+        </figure>
+
+        <div class="card-body-flow">
+          <h3 id="previewServiceName">Serviço não informado</h3>
+          <p class="card-meta"><span id="previewCategory">Categoria não informada</span> · <span id="previewNeighborhood">Bairro não informado</span></p>
+          <p id="previewDescription">Descreva o serviço oferecido, seu diferencial e sua forma de atendimento.</p>
+          <p><strong>Preço:</strong> <span id="previewPrice">A combinar</span></p>
+          <p><strong>Contato:</strong> <span id="previewContact">Contato não informado</span></p>
+          <p><strong>Acessibilidade:</strong> <span id="previewAccessibility">Informe recursos e diferenciais de atendimento.</span></p>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="page-hero compact">
+  <div class="container page-hero-grid align-items-center">
+    <article>
+      <p class="eyebrow">Assistente IA</p>
+      <h1>Orientação inteligente para navegar, encontrar serviços e publicar com mais clareza.</h1>
+      <p>
+        Use o assistente para descobrir a melhor rota dentro do ServiAqui, localizar serviços
+        com mais rapidez e melhorar anúncios com respostas mais objetivas e profissionais.
+      </p>
+    </article>
+
+    <aside class="surface-card helper-box">
+      <h2>Exemplos de perguntas</h2>
+      <ul class="check-list">
+        <li>“Preciso de eletricista urgente no Farol.”</li>
+        <li>“Como publicar meu serviço do jeito certo?”</li>
+        <li>“Qual é a melhor página para começar?”</li>
+      </ul>
+    </aside>
+  </div>
+</section>
+
+<section class="section-block">
+  <div class="container assistant-layout">
+    <form id="assistantForm" class="surface-card form-shell" novalidate>
+      <input type="hidden" id="assistantPage" value="/assistente">
+
+      <header class="card-head">
+        <p class="eyebrow">Conversa</p>
+        <h2>Faça sua pergunta</h2>
+      </header>
+
+      <div class="mb-3">
+        <label class="form-label" for="assistantInput">Mensagem</label>
+        <textarea
+          id="assistantInput"
+          class="form-control"
+          rows="6"
+          placeholder="Digite sua pergunta com mais detalhes para receber uma orientação melhor."
+        ></textarea>
+      </div>
+
+      <div class="form-actions mt-4 d-flex flex-wrap gap-2">
+        <button class="btn btn-brand" type="submit">Consultar assistente</button>
+        <button class="btn btn-outline-brand" type="button" data-speak-target="#assistantReply">
+          Ouvir resposta
+        </button>
+      </div>
+
+      <p class="form-feedback mt-3 mb-1" id="assistantStatus" aria-live="polite"></p>
+      <p class="small text-body-secondary mb-0" id="speechStatus" aria-live="polite"></p>
+    </form>
+
+    <article class="surface-card response-card">
+      <header class="card-head">
+        <p class="eyebrow">Resposta</p>
+        <h2>Retorno do assistente</h2>
+      </header>
+
+      <section id="assistantReply" class="response-body" aria-live="polite">
+        <div class="empty-state">
+          <p class="mb-0">
+            As respostas aparecerão aqui com sugestões, ações rápidas e orientações para o seu próximo passo.
+          </p>
+        </div>
+      </section>
+
+      <section id="assistantMeta" class="response-meta mt-4"></section>
+    </article>
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="page-hero compact">
+  <div class="container page-hero-grid">
+    <article>
+      <p class="eyebrow">Contato</p>
+      <h1>Fale com a equipe comercial ou de suporte com um fluxo simples e objetivo.</h1>
+      <p>O formulário salva o histórico no backend e pode acionar o e-mail da operação quando SMTP estiver configurado.</p>
+    </article>
+    <aside class="surface-card helper-box">
+      <h2>SLA sugerido</h2>
+      <p>Resposta inicial em até um dia útil para solicitações operacionais.</p>
+    </aside>
+  </div>
+</section>
+
+<section class="section-block">
+  <div class="container contact-layout">
+    <form id="contactForm" class="surface-card form-shell" novalidate>
+      <header class="card-head">
+        <p class="eyebrow">Formulário</p>
+        <h2>Enviar mensagem</h2>
+      </header>
+      <div class="row g-3">
+        <div class="col-md-6">
+          <label class="form-label" for="contactName">Nome</label>
+          <input id="contactName" class="form-control" required>
+        </div>
+        <div class="col-md-6">
+          <label class="form-label" for="contactEmail">E-mail</label>
+          <input id="contactEmail" type="email" class="form-control" required>
+        </div>
+        <div class="col-md-6">
+          <label class="form-label" for="contactSubject">Assunto</label>
+          <input id="contactSubject" class="form-control" required>
+        </div>
+        <div class="col-md-6">
+          <label class="form-label" for="contactChannel">Canal preferido</label>
+          <select id="contactChannel" class="form-select" required>
+            <option value="">Selecione</option>
+            <option>E-mail</option>
+            <option>WhatsApp</option>
+            <option>Telefone</option>
+          </select>
+        </div>
+        <div class="col-12">
+          <label class="form-label" for="contactMessage">Mensagem</label>
+          <textarea id="contactMessage" class="form-control" rows="6" required></textarea>
+        </div>
+      </div>
+      <div class="form-actions mt-4">
+        <button class="btn btn-brand" type="submit">Enviar contato</button>
+      </div>
+      <p class="form-feedback" id="contactFeedback" aria-live="polite"></p>
+    </form>
+
+    <aside class="surface-card helper-box">
+      <h2>Quando usar este canal</h2>
+      <ul class="check-list">
+        <li>Dúvidas comerciais</li>
+        <li>Suporte ao cadastro</li>
+        <li>Solicitações operacionais</li>
+      </ul>
+    </aside>
+  </div>
+</section>
+{% endblock %}

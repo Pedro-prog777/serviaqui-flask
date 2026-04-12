@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b1623">
+  <meta name="description" content="{{ meta_description or brand.tagline }}">
+  <meta property="og:title" content="{{ meta_title or title or 'ServiAqui' }}">
+  <meta property="og:description" content="{{ meta_description or brand.tagline }}">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="{{ request.base_url }}">
+  <title>{{ title or 'ServiAqui' }}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='assets/icons/favicon.svg') }}">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/style.css') }}">
+</head>
+<body data-page="{{ page_key or '' }}" data-theme="dark">
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+  <header class="site-header">
+    <section class="topbar-premium" aria-label="Informações rápidas">
+      <div class="container d-flex flex-wrap justify-content-between gap-2 align-items-center">
+        <p class="mb-0 small topbar-text">Experiência premium, responsiva e preparada para operação real.</p>
+        <p class="mb-0 small topbar-text">Desktop, tablet e celular com a mesma consistência visual.</p>
+      </div>
+    </section>
+
+    <nav class="navbar navbar-expand-lg navbar-premium" aria-label="Navegação principal">
+      <div class="container">
+        <a class="navbar-brand brand" href="{{ url_for('page_home') }}">
+          <span class="brand-mark" aria-hidden="true"><i class="bi bi-grid-1x2-fill"></i></span>
+          <span>
+            <strong>ServiAqui</strong>
+            <small>{{ brand.tagline }}</small>
+          </span>
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain" aria-controls="navbarMain" aria-expanded="false" aria-label="Abrir menu">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarMain">
+          <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+            <li class="nav-item"><a class="nav-link {{ 'active' if page_key == 'home' else '' }}" href="{{ url_for('page_home') }}">Início</a></li>
+            <li class="nav-item"><a class="nav-link {{ 'active' if page_key == 'services' else '' }}" href="{{ url_for('page_services') }}">Serviços</a></li>
+            <li class="nav-item"><a class="nav-link {{ 'active' if page_key == 'advertise' else '' }}" href="{{ url_for('page_advertise') }}">Anunciar</a></li>
+            <li class="nav-item"><a class="nav-link {{ 'active' if page_key == 'assistant' else '' }}" href="{{ url_for('page_assistant') }}">Assistente IA</a></li>
+            <li class="nav-item"><a class="nav-link {{ 'active' if page_key == 'about' else '' }}" href="{{ url_for('page_about') }}">Sobre</a></li>
+            <li class="nav-item"><a class="nav-link {{ 'active' if page_key == 'contact' else '' }}" href="{{ url_for('page_contact') }}">Contato</a></li>
+            <li class="nav-item"><a class="nav-link auth-link" href="{{ url_for('page_login') }}" data-auth-link>Entrar</a></li>
+            <li class="nav-item" data-user-only hidden><a class="btn btn-sm btn-soft-brand" href="{{ url_for('page_dashboard') }}">Painel</a></li>
+            <li class="nav-item" data-admin-only hidden><a class="btn btn-sm btn-brand" href="{{ url_for('page_admin') }}">Admin</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <aside class="utility-dock" aria-label="Preferências do site">
+    <button class="dock-toggle" type="button" data-dock-toggle aria-expanded="false" aria-controls="sitePreferencesPanel">
+      <i class="bi bi-sliders"></i>
+      <span>Ajustes</span>
+    </button>
+
+    <section class="dock-panel" id="sitePreferencesPanel" hidden>
+      <header class="dock-head">
+        <h2>Preferências</h2>
+        <p>Leitura confortável e contraste sob demanda, sem comprometer o visual premium.</p>
+      </header>
+
+      <section class="dock-group">
+        <h3>Tema</h3>
+        <div class="d-flex flex-wrap gap-2">
+          <button type="button" class="theme-chip" data-theme-choice="dark" aria-pressed="false">Escuro</button>
+          <button type="button" class="theme-chip" data-theme-choice="light" aria-pressed="false">Claro</button>
+          <button type="button" class="theme-chip" data-theme-choice="navy" aria-pressed="false">Navy</button>
+        </div>
+      </section>
+
+      <section class="dock-group">
+        <h3>Leitura</h3>
+        <div class="dock-actions">
+          <button type="button" data-font-step="down">A-</button>
+          <button type="button" data-font-step="up">A+</button>
+          <button type="button" data-toggle-setting="contrast">Contraste</button>
+          <button type="button" data-toggle-setting="motion">Menos movimento</button>
+          <button type="button" data-reset-preferences>Resetar</button>
+        </div>
+      </section>
+    </section>
+  </aside>
+
+  <main id="conteudo">
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <section class="footer-grid">
+        <article>
+          <h2 class="footer-title">ServiAqui</h2>
+          <p class="footer-copy">Plataforma para divulgar, encontrar e gerir serviços locais com mais confiança, clareza e padrão profissional.</p>
+        </article>
+
+        <nav aria-label="Institucional">
+          <h2 class="footer-title">Institucional</h2>
+          <ul class="footer-list">
+            <li><a href="{{ url_for('page_about') }}">Sobre</a></li>
+            <li><a href="{{ url_for('page_privacy') }}">Privacidade</a></li>
+            <li><a href="{{ url_for('page_security') }}">Segurança</a></li>
+            <li><a href="{{ url_for('page_terms') }}">Termos</a></li>
+          </ul>
+        </nav>
+
+        <nav aria-label="Recursos">
+          <h2 class="footer-title">Recursos</h2>
+          <ul class="footer-list">
+            <li><a href="{{ url_for('page_services') }}">Catálogo</a></li>
+            <li><a href="{{ url_for('page_advertise') }}">Publicar serviço</a></li>
+            <li><a href="{{ url_for('page_help') }}">Ajuda</a></li>
+            <li><a href="{{ url_for('page_accessibility') }}">Acessibilidade</a></li>
+          </ul>
+        </nav>
+      </section>
+
+      <section class="footer-bottom">
+        <p class="mb-0">© <span data-current-year></span> ServiAqui. Todos os direitos reservados.</p>
+        <p class="mb-0">Contato: {{ brand.support_email }}</p>
+      </section>
+    </div>
+  </footer>
+
+  <section class="toast-container position-fixed bottom-0 end-0 p-3">
+    <article class="toast border-0 shadow-lg" id="siteToast" role="status" aria-live="polite" aria-atomic="true">
+      <header class="toast-header">
+        <strong class="me-auto toast-title">ServiAqui</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Fechar"></button>
+      </header>
+      <section class="toast-body"></section>
+    </article>
+  </section>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <noscript><div class="alert alert-warning m-3">Ative o JavaScript para usar o VLibras e os recursos interativos do site.</div></noscript>
+  <div vw class="enabled">
+    <div vw-access-button class="active"></div>
+    <div vw-plugin-wrapper>
+      <div class="vw-plugin-top-wrapper"></div>
+    </div>
+  </div>
+
+  <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+  <script>
+    window.addEventListener('load', function () {
+      if (window.VLibras && typeof window.VLibras.Widget === 'function') {
+        window.VLIBRAS_WIDGET = new window.VLibras.Widget('https://vlibras.gov.br/app');
+      }
+    });
+  </script>
+  <script src="{{ url_for('static', filename='assets/js/ui.js') }}"></script>
+  <script src="{{ url_for('static', filename='assets/js/services/ai-service.js') }}"></script>
+  <script src="{{ url_for('static', filename='assets/js/app.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="page-hero compact">
+  <div class="container page-hero-grid">
+    <article>
+      <p class="eyebrow">Administração</p>
+      <h1>Moderação e visão operacional da plataforma.</h1>
+      <p>Acompanhe usuários, anúncios, contatos, chats e solicitações administrativas.</p>
+    </article>
+  </div>
+</section>
+
+<section class="section-block">
+  <div class="container">
+    <section class="stats-grid" id="adminCounts"></section>
+    <section class="dashboard-grid mt-4">
+      <article class="surface-card">
+        <header class="card-head"><h2>Anúncios recentes</h2></header>
+        <section id="adminAnnouncements"></section>
+      </article>
+      <article class="surface-card">
+        <header class="card-head"><h2>Contatos recentes</h2></header>
+        <section id="adminContacts"></section>
+      </article>
+      <article class="surface-card">
+        <header class="card-head"><h2>Usuários recentes</h2></header>
+        <section id="adminUsers"></section>
+      </article>
+    </section>
+  </div>
+</section>
+{% endblock %}

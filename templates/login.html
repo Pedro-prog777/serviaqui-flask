@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="page-hero compact">
+  <div class="container page-hero-grid">
+    <article>
+      <p class="eyebrow">Acesso</p>
+      <h1>Entre ou crie sua conta para operar anúncios, contatos e histórico.</h1>
+      <p>Fluxo de autenticação com backend funcional, sessão persistente e recuperação de senha.</p>
+    </article>
+  </div>
+</section>
+
+<section class="section-block">
+  <div class="container auth-grid">
+    <form id="loginForm" class="surface-card form-shell" novalidate>
+      <header class="card-head">
+        <p class="eyebrow">Login</p>
+        <h2>Acessar conta</h2>
+      </header>
+      <label class="form-label" for="loginEmail">E-mail</label>
+      <input id="loginEmail" type="email" class="form-control" required>
+      <label class="form-label mt-3" for="loginPassword">Senha</label>
+      <input id="loginPassword" type="password" class="form-control" required>
+      <div class="form-actions mt-4">
+        <button class="btn btn-brand" type="submit">Entrar</button>
+        <a class="btn btn-outline-brand" href="{{ url_for('page_password_request') }}">Esqueci a senha</a>
+      </div>
+      <p class="form-feedback" id="loginFeedback" aria-live="polite"></p>
+    </form>
+
+    <form id="registerForm" class="surface-card form-shell" novalidate>
+      <header class="card-head">
+        <p class="eyebrow">Cadastro</p>
+        <h2>Criar conta</h2>
+      </header>
+      <label class="form-label" for="registerName">Nome</label>
+      <input id="registerName" class="form-control" required>
+      <label class="form-label mt-3" for="registerEmail">E-mail</label>
+      <input id="registerEmail" type="email" class="form-control" required>
+      <label class="form-label mt-3" for="registerPassword">Senha</label>
+      <input id="registerPassword" type="password" class="form-control" required>
+      <div class="form-actions mt-4">
+        <button class="btn btn-brand" type="submit">Criar conta</button>
+      </div>
+      <p class="form-feedback" id="registerFeedback" aria-live="polite"></p>
+    </form>
+  </div>
+</section>
+{% endblock %}
